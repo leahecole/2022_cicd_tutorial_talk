@@ -14,7 +14,7 @@
 
 import datetime
 
-import airflow
+from airflow import models
 from airflow.operators import bash
 
 # If you are running Airflow in more than one time zone
@@ -23,7 +23,7 @@ from airflow.operators import bash
 YESTERDAY = datetime.datetime.now() - datetime.timedelta(days=1)
 
 default_args = {
-    "owner": "Composer Example",
+    "owner": "Composer Example 2",
     "depends_on_past": False,
     "email": [""],
     "email_on_failure": False,
@@ -33,7 +33,7 @@ default_args = {
     "start_date": YESTERDAY,
 }
 
-with airflow.DAG(
+with models.DAG(
     "composer_sample_dag_2",
     "catchup=False",
     default_args=default_args,

@@ -11,10 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# a change to a dag!
 import datetime
 
-import airflow
+from airflow import models
 from airflow.operators import bash
 
 # If you are running Airflow in more than one time zone
@@ -33,7 +32,7 @@ default_args = {
     "start_date": YESTERDAY,
 }
 
-with airflow.DAG(
+with models.DAG(
     "composer_sample_dag",
     "catchup=False",
     default_args=default_args,
