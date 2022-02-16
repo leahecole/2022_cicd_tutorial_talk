@@ -15,6 +15,7 @@
 # [START composer_cicd_add_dags_to_composer_utility]
 import argparse
 import glob
+import os
 from shutil import copytree, ignore_patterns
 import tempfile
 from typing import List, Tuple
